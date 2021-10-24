@@ -30,5 +30,5 @@ int main()
 		GPIO_SetBits(GPIOB, GPIO_Pin_1);
 	}
 	
-	return 0;
+	// return 0;
 }

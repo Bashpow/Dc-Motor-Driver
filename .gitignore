@@ -1,0 +1,8 @@
+#User Config
+*.uvguix.*
+/MDK-ARM/.vscode
+
+#obj
+/MDK-ARM/DebugConfig
+/MDK-ARM/Listings
+/MDK-ARM/Objects
