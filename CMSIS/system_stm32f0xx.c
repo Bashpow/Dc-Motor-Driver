@@ -137,7 +137,8 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
   * @{
   */
 
-static void SetSysClock(void);
+// static void SetSysClock(void);
+extern void SystemClock_Config(void);
 
 /**
   * @}
@@ -189,7 +190,8 @@ void SystemInit (void)
   RCC->CIR = 0x00000000;
 
   /* Configure the System clock frequency, AHB/APBx prescalers and Flash settings */
-  SetSysClock();
+  // SetSysClock();
+  SystemClock_Config();
 }
 
 /**
@@ -279,7 +281,8 @@ void SystemCoreClockUpdate (void)
   * @param  None
   * @retval None
   */
-static void SetSysClock(void)
+// static void SetSysClock(void)
+void SetSysClock(void)
 {
   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
 
