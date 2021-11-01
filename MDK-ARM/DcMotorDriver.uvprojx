@@ -337,9 +337,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_STDPERIPH_DRIVER, STM32F042</Define>
+              <Define>USE_STDPERIPH_DRIVER,  STM32F042</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER;..\DEVICE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -527,6 +527,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DEVICE</GroupName>
+          <Files>
+            <File>
+              <FileName>usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\usart2.c</FilePath>
             </File>
           </Files>
         </Group>
