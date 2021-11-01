@@ -538,6 +538,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\usart2.c</FilePath>
             </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\encoder.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
