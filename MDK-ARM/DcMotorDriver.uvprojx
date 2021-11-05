@@ -543,6 +543,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\encoder.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\stm32flash.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
