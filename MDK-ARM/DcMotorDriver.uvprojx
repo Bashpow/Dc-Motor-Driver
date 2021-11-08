@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,  STM32F042</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER;..\DEVICE</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER;..\DEVICE;..\USERLIB</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -547,6 +547,16 @@
               <FileName>stm32flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\DEVICE\stm32flash.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USERLIB</GroupName>
+          <Files>
+            <File>
+              <FileName>moduleconfig.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USERLIB\moduleconfig.c</FilePath>
             </File>
           </Files>
         </Group>
