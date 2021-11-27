@@ -1,6 +1,15 @@
 #include "stm32f0xx.h"
 #include "usart2.h"
 
+void delay ()
+{
+	uint32_t ad=0;
+	for(int i=0;i<90000;i++)
+	{
+		ad++;
+	}
+}
+
 int main(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -14,10 +23,15 @@ int main(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	Usart2_Init();
+	
+	printf("woshinidie123\r\n");
+	USART_ClearITPendingBit(USART2, USART_IT_IDLE);
+	USART_ITConfig(USART2, USART_IT_IDLE, ENABLE);
+	
 
 	while (1)
 	{
-		printf("woshinidie123\r\n");
+		
 	}
 }
 
