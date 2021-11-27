@@ -10,13 +10,13 @@
       <TargetName>DcMotorDriver</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F042F6Px</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F0xx_DFP.2.0.0</PackID>
+          <PackID>Keil.STM32F0xx_DFP.2.1.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00001800) IROM(0x08000000,0x00008000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -533,6 +533,11 @@
         <Group>
           <GroupName>DEVICE</GroupName>
           <Files>
+            <File>
+              <FileName>tim17.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\tim17.c</FilePath>
+            </File>
             <File>
               <FileName>usart2.c</FileName>
               <FileType>1</FileType>
