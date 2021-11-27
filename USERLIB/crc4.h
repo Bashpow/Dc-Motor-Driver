@@ -8,3 +8,4 @@
 unsigned char CRC4_Itu(unsigned char crc, unsigned char *data, unsigned char len);
 
 #endif //_CRC4_H_
+
