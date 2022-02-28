@@ -5555,7 +5555,7 @@ typedef struct
 #define TS_IRQn                           TSC_IRQn
 #define DMA1_Ch1_IRQn                     DMA1_Channel1_IRQn
 #define DMA1_Ch2_3_DMA2_Ch1_2_IRQn        DMA1_Channel2_3_IRQn           
-#define DMA1_Channel4_5_IRQn              DMA1_Channel4_5_6_7_IRQn
+// #define DMA1_Channel4_5_IRQn              DMA1_Channel4_5_6_7_IRQn
 #define DMA1_Ch4_7_DMA2_Ch3_5_IRQn        DMA1_Channel4_5_6_7_IRQn          
 #define ADC1_COMP_IRQn                    ADC1_IRQn                         
 #define CEC_IRQn                          CEC_CAN_IRQn
