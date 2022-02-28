@@ -44,10 +44,10 @@ private:
 	struct ModuleConfigData config_;
 
 	// 配置信息的大小为 (flash_write_16bit_len*2) byte
-	static size_t flash_write_16bit_len_;
+	static uint32_t flash_write_16bit_len_;
 
 	// 配置信息存放于flash的位置的首地址，一般为最后一个扇区基地址
-	static size_t flash_free_page_base_addr_;
+	static uint32_t flash_free_page_base_addr_;
 };
 
 #endif // __MODULE_CONFIG_H_
