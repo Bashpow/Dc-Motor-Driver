@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>3</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,  STM32F042</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER;..\DEVICE;..\USERLIB;..\RTOS\bsp;..\RTOS;..\RTOS\include;..\RTOS\components\finsh;..\RTOS\include\libc</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\RTOS\bsp;..\RTOS;..\RTOS\include;..\RTOS\include\libc;..\USER;..\DEVICE;..\USERLIB</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -516,66 +516,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>USER</GroupName>
-          <Files>
-            <File>
-              <FileName>stm32f0xx_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USER\stm32f0xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USER\main.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>DEVICE</GroupName>
-          <Files>
-            <File>
-              <FileName>tim17.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\tim17.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\usart2.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\stm32flash.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>USERLIB</GroupName>
-          <Files>
-            <File>
-              <FileName>moduleconfig.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USERLIB\moduleconfig.c</FilePath>
-            </File>
-            <File>
-              <FileName>configcmd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USERLIB\configcmd.c</FilePath>
-            </File>
-            <File>
-              <FileName>crc4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USERLIB\crc4.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>RTT/SRC</GroupName>
           <Files>
             <File>
@@ -682,6 +622,66 @@
               <FileName>rtconfig.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\RTOS\bsp\rtconfig.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USER</GroupName>
+          <Files>
+            <File>
+              <FileName>stm32f0xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\stm32f0xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DEVICE</GroupName>
+          <Files>
+            <File>
+              <FileName>tim17.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\tim17.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\usart2.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\stm32flash.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USERLIB</GroupName>
+          <Files>
+            <File>
+              <FileName>moduleconfig.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\USERLIB\moduleconfig.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>configcmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USERLIB\configcmd.c</FilePath>
+            </File>
+            <File>
+              <FileName>crc4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USERLIB\crc4.c</FilePath>
             </File>
           </Files>
         </Group>
