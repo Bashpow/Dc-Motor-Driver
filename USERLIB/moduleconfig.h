@@ -4,30 +4,34 @@
 #include "stm32f0xx.h"
 #include "stm32flash.h"
 
-typedef struct
-{
-	uint16_t z_phase;
+// 配置的成员参数
+// 参考自Qt库的Q_OBJECT
+#define CONFIG_MEMBER        \
+    uint16_t z_phase;        \
+    uint16_t mode;           \
+    uint16_t can_id;         \
+    uint16_t data_frequency; \
+    uint16_t angle_max;      \
+    uint16_t filter;         \
+    uint16_t pwm_mode;       \
+    int16_t pwm_range;       \
+    int16_t motor_max_speed; \
+    float pid_kp;            \
+    float pid_ki;            \
+    float pid_kd;
 
-	uint16_t mode;
+class ModuleConfig {
+public:
 
-	uint16_t can_id;
-	uint16_t data_frequency;
-	uint16_t angle_max;
-	uint16_t filter;
+private:
+    ModuleConfig() : config_init_state_(false) { }
+    ~ModuleConfig(){};
 
-	uint16_t pwm_mode;
-	int16_t pwm_range; ///< PWM控制范围为 1500-pwm_range ~ 1500+pwm_range
-	int16_t motor_max_speed;
-	float pid_kp;
-	float pid_ki;
-	float pid_kd;
-
-}Module_config_t;
-
-void Module_Config_Init(void);
-void Module_Config_Write_Into_Flash(void);
-uint8_t Module_Config_Check(Module_config_t* check_config);
-const Module_config_t* Get_Module_Config(void);
-Module_config_t* Get_Module_Config_New(void);
+private:
+    bool config_init_state_;
+    struct {
+        CONFIG_MEMBER
+    } config_;
+};
 
 #endif // __MODULE_CONFIG_H_
