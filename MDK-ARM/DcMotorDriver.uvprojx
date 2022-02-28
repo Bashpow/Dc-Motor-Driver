@@ -663,6 +663,16 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\stm32flash.c</FilePath>
             </File>
+            <File>
+              <FileName>can1.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\DEVICE\can1.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>can.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\DEVICE\can.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
