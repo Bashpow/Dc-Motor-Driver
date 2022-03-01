@@ -516,6 +516,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>RTT/BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>rtconfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\RTOS\bsp\rtconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\RTOS\bsp\board.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>RTT/SRC</GroupName>
           <Files>
             <File>
@@ -607,21 +622,6 @@
               <FileName>cpuport.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\RTOS\libcpu\arm\cortex-m0\cpuport.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>RTT/BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\RTOS\bsp\board.c</FilePath>
-            </File>
-            <File>
-              <FileName>rtconfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\RTOS\bsp\rtconfig.h</FilePath>
             </File>
           </Files>
         </Group>

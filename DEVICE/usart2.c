@@ -11,6 +11,7 @@ void _sys_exit(int x) //����ʹ�ð�����ģʽ
 //__use_no_semihosting was requested, but _ttywrch was
 void _ttywrch(int ch)
 {
+	while(USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
 	ch = ch;
 }
 FILE __stdout;
