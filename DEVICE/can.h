@@ -5,7 +5,7 @@
 namespace device{
 namespace can{
 
-class Can
+class CanInterface
 {
 public:
     
@@ -25,9 +25,9 @@ public:
         NVIC_InitTypeDef NVIC_InitStructure_t;
     };
 
-    explicit Can(const uint32_t can_id, CanInitParams& can_init_params) : can_id_(can_id),
+    explicit CanInterface(const uint32_t can_id, CanInitParams& can_init_params) : can_id_(can_id),
                                                     can_init_params_(can_init_params) {}
-    virtual ~Can() {}
+    virtual ~CanInterface() {}
     virtual bool CanInit() = 0;
     virtual bool CanSendFourMessage() = 0;
     const uint32_t GetCanDeviceId() const { return can_id_; }

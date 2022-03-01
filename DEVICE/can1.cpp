@@ -3,7 +3,9 @@
 namespace device{
 namespace can{
 
-CanOne::CanOne(const uint32_t can_id,device::can::Can::CanInitParams& can_init_params) : Can(can_id,can_init_params)
+CanOne::CanOne(const uint32_t can_id,
+    device::can::CanInterface::CanInitParams& can_init_params) 
+    :CanInterface(can_id, can_init_params)
 {
 
 }
