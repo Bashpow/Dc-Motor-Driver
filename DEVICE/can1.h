@@ -8,7 +8,7 @@ namespace can{
 class CanOne : public CanInterface{
 
 public:
-    explicit CanOne(const uint32_t can_id,device::can::CanInterface::CanInitParams& can_init_params);
+    explicit CanOne(const uint32_t can_id, device::can::CanInterface::CanInitParams& can_init_params);
     bool CanInit() override;
     bool CanSendFourMessage() override;
 private:
