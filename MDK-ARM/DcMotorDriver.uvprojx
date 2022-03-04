@@ -634,9 +634,14 @@
               <FilePath>..\USER\stm32f0xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\USER\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>clock_init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\USER\main.c</FilePath>
+              <FilePath>..\USER\clock_init.c</FilePath>
             </File>
           </Files>
         </Group>
