@@ -698,6 +698,11 @@
               <FileType>1</FileType>
               <FilePath>..\USERLIB\crc4.c</FilePath>
             </File>
+            <File>
+              <FileName>motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\USERLIB\motor.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -13,8 +13,7 @@ public:
     virtual ~CanInterface(){}
 };
 
-}
-
-}
+} // namespace can
+} // namespace device
 
 #endif // DEVICE_CAN_H_
