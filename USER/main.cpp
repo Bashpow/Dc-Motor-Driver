@@ -16,8 +16,9 @@ int main(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	Usart2_Init();
-	device::can::CanInterface::CanInitParams can_init_params;
-	device::can::CanOne can_one(1, can_init_params);
+	
+	device::can::CanOne &can_signle_instance = device::can::CanOne::GetCanOneSigleInstance();
+	can_signle_instance.CanInit();
 	// printf("woshinidie123\r\n");
 	USART_ClearITPendingBit(USART2, USART_IT_IDLE);
 	USART_ITConfig(USART2, USART_IT_IDLE, ENABLE);
