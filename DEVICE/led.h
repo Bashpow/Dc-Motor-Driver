@@ -2,8 +2,8 @@
 #define __LED_H_
 
 enum LedColor {
-	LED_RED = (unsigned short)0x0001,
-	LED_GREEN = (unsigned short)0x0002,
+	LED_GREEN = (unsigned short)0x0001,
+	LED_RED = (unsigned short)0x0002,
 };
 
 class Led{

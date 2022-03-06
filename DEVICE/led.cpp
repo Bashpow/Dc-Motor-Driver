@@ -6,7 +6,7 @@
 
 Led Led::_instance;
 
-inline bool Led::LedInit(void) {
+bool Led::LedInit(void) {
 	if(led_init_state_ == false) {
 		SetLed(LED_RED, false);
 		SetLed(LED_GREEN, false);
@@ -16,17 +16,17 @@ inline bool Led::LedInit(void) {
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_1;
-		GPIO_Init(GPIOA, &GPIO_InitStructure);
+		GPIO_Init(GPIOF, &GPIO_InitStructure);
 		led_init_state_ = true;
 	}
 	return led_init_state_;
 }
 
-inline bool Led::GetLed(unsigned short led_x) const {
+bool Led::GetLed(unsigned short led_x) const {
 	return GPIO_ReadOutputDataBit(GPIOF, led_x);
 }
 
-inline void Led::SetLed(unsigned short led_x, bool state) const {
+void Led::SetLed(unsigned short led_x, bool state) const {
 	if(state){
 		GPIO_SetBits(GPIOF, led_x);
 	} else {
@@ -34,6 +34,6 @@ inline void Led::SetLed(unsigned short led_x, bool state) const {
 	}
 }
 
-inline void Led::ToggleLed(unsigned short led_x) const {
+void Led::ToggleLed(unsigned short led_x) const {
 	GPIOF->ODR ^= led_x;
 }
