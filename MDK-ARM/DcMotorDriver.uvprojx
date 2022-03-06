@@ -678,6 +678,11 @@
               <FileType>8</FileType>
               <FilePath>..\DEVICE\can.cpp</FilePath>
             </File>
+            <File>
+              <FileName>timer_pwm_out.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\DEVICE\timer_pwm_out.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
