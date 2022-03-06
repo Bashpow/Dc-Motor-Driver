@@ -62,7 +62,7 @@ void SystemClock_Config(void)
 		/* code */
 	}
 
-	SystemCoreClock = 48000000;
+	// SystemCoreClock = 48000000;
 
 	CLEAR_BIT(RCC->CR2, RCC_CR2_HSI14DIS);
 }

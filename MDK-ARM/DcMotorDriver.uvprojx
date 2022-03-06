@@ -634,14 +634,14 @@
               <FilePath>..\USER\stm32f0xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\USER\main.cpp</FilePath>
-            </File>
-            <File>
               <FileName>clock_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\clock_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\USER\main.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -649,9 +649,9 @@
           <GroupName>DEVICE</GroupName>
           <Files>
             <File>
-              <FileName>tim17.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\tim17.c</FilePath>
+              <FileName>led.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\DEVICE\led.cpp</FilePath>
             </File>
             <File>
               <FileName>usart2.c</FileName>
