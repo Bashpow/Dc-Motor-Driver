@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\USER;..\DEVICE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -532,6 +532,16 @@
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\stm32f10x_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DEVICE</GroupName>
+          <Files>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\led.c</FilePath>
             </File>
           </Files>
         </Group>
