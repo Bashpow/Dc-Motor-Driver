@@ -111,7 +111,7 @@
 /* #define SYSCLK_FREQ_36MHz  36000000 */
 /* #define SYSCLK_FREQ_48MHz  48000000 */
 /* #define SYSCLK_FREQ_56MHz  56000000 */
-#define SYSCLK_FREQ_72MHz  72000000
+//#define SYSCLK_FREQ_72MHz  72000000
 #endif
 
 /*!< Uncomment the following line if you need to use external SRAM mounted
@@ -411,6 +411,62 @@ void SystemCoreClockUpdate (void)
 }
 
 /**
+ * @brief Set the Sys Clock object 使用HSI将系统时钟设置为64MHZ
+ * 
+ */
+static void SetSysClock(void)
+{
+  RCC_HSEConfig(RCC_HSE_OFF); //关闭HSE
+  RCC_DeInit();               //将外设 RCC寄存器重设为缺省值，复位
+  do
+  {
+    RCC_HSICmd(ENABLE);                                  //使能HSI
+  } while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET); //等待HSI使能成功
+
+  //使能Flash与存储缓冲区，flash设置相关，查看闪存编程手册
+
+  /* Enable Prefetch Buffer */
+  FLASH->ACR |= FLASH_ACR_PRFTBE;
+
+  /* Flash 2 wait state */  
+  FLASH->ACR &= (uint32_t)((uint32_t)~FLASH_ACR_LATENCY);  //清除LATENCY位
+  FLASH->ACR |= (uint32_t)FLASH_ACR_LATENCY_2;
+
+  /* HCLK = SYSCLK */
+  RCC_HCLKConfig(RCC_SYSCLK_Div1); //设置AHB的分频系数
+
+  /* PCLK1 = HCLK */
+  RCC_PCLK1Config(RCC_HCLK_Div2);  //设置APB1的分频系数
+
+  /* PCLK2 = HCLK */
+  RCC_PCLK2Config(RCC_HCLK_Div1);  //设置APB2的分频系数
+
+  //设置 PLL 时钟源及倍频系数
+  /*  PLL configuration: PLLCLK = HSI / 2 * 16 = 64 MHz */
+  RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_16);
+  RCC_PLLCmd(ENABLE);//如果PLL被用于系统时钟,那么它不能被失能
+
+  //等待指定的 RCC 标志位设置成功 等待PLL初始化成功
+  /* Wait till PLL is ready */
+  while(RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET);
+
+  //设置系统时钟（SYSCLK） 设置PLL为系统时钟源
+  /* Select PLL as system clock source */
+  RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);//选择想要的系统时钟
+
+  //等待PLL成功用作于系统时钟的时钟源
+  /* Wait till PLL is used as system clock source */
+  //  0x00：HSI 作为系统时钟
+  //  0x04：HSE作为系统时钟
+  //  0x08：PLL作为系统时钟
+  while(RCC_GetSYSCLKSource() != 0x08);//需与被选择的系统时钟对应起来
+
+  SystemCoreClockUpdate();
+}
+
+// 无8M外部晶振（HSE），使用上面的SetSysClock()，将系统时钟设置为64MHZ
+#if 0
+/**
   * @brief  Configures the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers.
   * @param  None
   * @retval None
@@ -434,6 +490,7 @@ static void SetSysClock(void)
  /* If none of the define above is enabled, the HSI is used as System clock
     source (default after reset) */ 
 }
+#endif
 
 /**
   * @brief  Setup the external memory controller. Called in startup_stm32f10x.s 
