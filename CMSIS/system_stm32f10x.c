@@ -160,7 +160,8 @@
 #elif defined SYSCLK_FREQ_72MHz
   uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        /*!< System Clock Frequency (Core Clock) */
 #else /*!< HSI Selected as System Clock source */
-  uint32_t SystemCoreClock         = HSI_VALUE;        /*!< System Clock Frequency (Core Clock) */
+  // uint32_t SystemCoreClock         = HSI_VALUE;        /*!< System Clock Frequency (Core Clock) */
+  uint32_t SystemCoreClock         = 64000000;
 #endif
 
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
@@ -416,12 +417,14 @@ void SystemCoreClockUpdate (void)
  */
 static void SetSysClock(void)
 {
-  RCC_HSEConfig(RCC_HSE_OFF); //关闭HSE
   RCC_DeInit();               //将外设 RCC寄存器重设为缺省值，复位
-  do
-  {
-    RCC_HSICmd(ENABLE);                                  //使能HSI
-  } while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET); //等待HSI使能成功
+  RCC_HSEConfig(RCC_HSE_OFF); //关闭HSE
+  while (RCC_GetFlagStatus(RCC_FLAG_HSERDY) == SET){}
+  RCC_PLLCmd(DISABLE);
+	while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == SET){}
+	
+  RCC_HSICmd(ENABLE);                                  //使能HSI
+  while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET); //等待HSI使能成功
 
   //使能Flash与存储缓冲区，flash设置相关，查看闪存编程手册
 
@@ -444,6 +447,12 @@ static void SetSysClock(void)
   //设置 PLL 时钟源及倍频系数
   /*  PLL configuration: PLLCLK = HSI / 2 * 16 = 64 MHz */
   RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_16);
+
+  /* HSI oscillator clock divided by 2 selected as PLL clock entry */
+  while ((RCC->CFGR & RCC_CFGR_PLLSRC) != 0x00)
+  {
+  }
+
   RCC_PLLCmd(ENABLE);//如果PLL被用于系统时钟,那么它不能被失能
 
   //等待指定的 RCC 标志位设置成功 等待PLL初始化成功
@@ -461,7 +470,7 @@ static void SetSysClock(void)
   //  0x08：PLL作为系统时钟
   while(RCC_GetSYSCLKSource() != 0x08);//需与被选择的系统时钟对应起来
 
-  SystemCoreClockUpdate();
+  // SystemCoreClockUpdate();
 }
 
 // 无8M外部晶振（HSE），使用上面的SetSysClock()，将系统时钟设置为64MHZ
