@@ -1,6 +1,8 @@
 #include "stm32f10x.h"
 #include "led.h"
 #include "usart2.h"
+#include "cansend_task.h"
+
 
 extern uint32_t SystemCoreClock;
 
@@ -39,7 +41,7 @@ int main(void)
 	info_print("Mainstream Performance line, Arm Cortex-M3 MCU with 64 Kbytes of Flash memory, 72 MHz CPU, motor control, USB and CAN\r\n");
 	info_print("\r\n");
 // }
-	for(;;)
+	
 	{
 		RCC_ClocksTypeDef     RCC_Clocks;
     	RCC_GetClocksFreq(&RCC_Clocks);
@@ -48,6 +50,9 @@ int main(void)
 		printf("sysclock %d %d\r\n", RCC_Clocks.SYSCLK_Frequency, RCC_Clocks.HCLK_Frequency);
 		for(int i=0; i<10000000; i++){}
 	}
+	Create_Can_Send_Task();
+	vTaskStartScheduler();
+
 }
 
 #include "FreeRTOS.h"
@@ -55,9 +60,9 @@ int main(void)
 static StaticTask_t  TldeTaskTCP;
 static StackType_t   IdleTaskkStack[configMINIMAL_STACK_SIZE];
 
-void vApplicationGetIdleTaskMemory( StaticTask_t ** ppxIdleTaskTCBBuffer,
-																		StackType_t ** ppxIdleTaskStackBuffer, 
-																		uint32_t *pulIdleTaskStackSize ) 
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
+								   StackType_t **ppxIdleTaskStackBuffer,
+								   uint32_t *pulIdleTaskStackSize)
 {
 	*ppxIdleTaskTCBBuffer = &TldeTaskTCP;
 	*ppxIdleTaskStackBuffer = IdleTaskkStack;

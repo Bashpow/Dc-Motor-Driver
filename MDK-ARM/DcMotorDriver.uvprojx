@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\USER;..\DEVICE</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\USER;..\DEVICE;..\TASK</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -602,6 +602,16 @@
               <FileName>usart2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\DEVICE\usart2.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TASK</GroupName>
+          <Files>
+            <File>
+              <FileName>cansend_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\cansend_task.c</FilePath>
             </File>
           </Files>
         </Group>
