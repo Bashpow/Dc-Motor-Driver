@@ -614,6 +614,11 @@
               <FilePath>..\TASK\peripheral_init.c</FilePath>
             </File>
             <File>
+              <FileName>static_allocation_support.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\static_allocation_support.c</FilePath>
+            </File>
+            <File>
               <FileName>cansend_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\cansend_task.c</FilePath>
