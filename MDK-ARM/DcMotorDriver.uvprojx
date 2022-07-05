@@ -609,9 +609,19 @@
           <GroupName>TASK</GroupName>
           <Files>
             <File>
+              <FileName>peripheral_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\peripheral_init.c</FilePath>
+            </File>
+            <File>
               <FileName>cansend_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\cansend_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\shell_task.c</FilePath>
             </File>
           </Files>
         </Group>
