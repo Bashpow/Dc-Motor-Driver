@@ -3,8 +3,6 @@
 #include "usart2.h"
 #include "timer1.h"
 
-static void Print_Logo(void);
-
 /**
  * @brief 外设初始化
  * 
@@ -17,7 +15,7 @@ inline void Peripheral_Init(void)
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
 	Led_Init();
 	Usart2_Init(115200);
-    Print_Logo();
+    // Print_Logo();
 	Dc_Brush_Motor_Pwm_Init( TIM1_CALC_TIM_PERIOD(10000) );
 }
 
@@ -25,7 +23,7 @@ inline void Peripheral_Init(void)
  * @brief 串口打印LOGO
  * 
  */
-static inline void Print_Logo(void)
+inline void Print_Logo(void)
 {
     ///< 打印炫酷的提示信息
 	printf(" ___     _         _   \r\n");

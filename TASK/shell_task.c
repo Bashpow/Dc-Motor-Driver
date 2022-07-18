@@ -1,5 +1,6 @@
 #include "shell_task.h"
 #include "usart2.h"
+#include "peripheral_init.h"
 
 #define SHELL_TASK_PRIO (5)                             //任务优先级
 #define SHELL_TASK_STK_SIZE (200)                       //任务堆栈大小
@@ -26,9 +27,19 @@ inline void Create_Shell_Send_Task(void)
 
 static void Shell_Task_Entry(void *pvParameters)
 {
+    Print_Logo();
     for (;;)
     {
-        printf("shell\r\n");
-        vTaskDelay(2000);
+        // 启动串口接收
+        Usart2_Shell_Start_Dma_Receive();
+
+        // 等待任务通知
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+        printf("len %d\r\n", Get_Usart2_Shell_Rx_Length());
+        for(int ii=0; ii<Get_Usart2_Shell_Rx_Length(); ii++)
+            printf("%c", Get_Usart2_Shell_Rx_Buffer()[ii]);
+        printf("\r\n");
+        // vTaskDelay(2000);
     }
 }
