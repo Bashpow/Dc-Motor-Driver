@@ -1,6 +1,7 @@
 #include "peripheral_init.h"
 #include "led.h"
 #include "usart2.h"
+#include "timer1.h"
 
 static void Print_Logo(void);
 
@@ -17,6 +18,7 @@ inline void Peripheral_Init(void)
 	Led_Init();
 	Usart2_Init(115200);
     Print_Logo();
+	Dc_Brush_Motor_Pwm_Init( TIM1_CALC_TIM_PERIOD(10000) );
 }
 
 /**
