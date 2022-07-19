@@ -30,11 +30,9 @@ inline void Create_Can_Send_Task(void)
 
 void Can_Send_Task(void *pvParameters)
 {
-	uint8_t task1_num = 0;
-	
 	for(;;)
 	{
-		printf("task_cnt %d\r\n", task1_num++);
+		// printf("task_cnt %d\r\n", task1_num++);
 		//延时1秒 1000个时钟节拍
         LED_ONBOARD_TOGGLE();
 		vTaskDelay(1000);

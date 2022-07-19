@@ -102,7 +102,7 @@ void Shell_Command_Parse(char * arg)
 		{
 			if ((arg[node_id.part.len] == '\0') || (arg[node_id.part.len] == ' '))
 			{
-				shell_print("RaceCar> %s\r\n", arg);
+				shell_print("MotorDriver> %s\r\n", arg);
 				node->func(arg); //执行回调函数
 				shell_print("\r\n");
 				return;
@@ -195,4 +195,6 @@ void Shell_Init(void)
 
 	/* 注册用户命令 */
 	User_Commands_Init();
+
+	shell_print("MotorDriver> Init.\r\n\r\n");
 }
