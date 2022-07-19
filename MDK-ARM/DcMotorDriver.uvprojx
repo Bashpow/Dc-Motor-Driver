@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWLIB\inc;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\USER;..\DEVICE;..\TASK</IncludePath>
+              <IncludePath>..\CMSIS;..\FWLIB\inc;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\USER;..\DEVICE;..\LIB\shell;..\TASK</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -607,6 +607,26 @@
               <FileName>timer1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\DEVICE\timer1.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>LIB/Shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\shell\shell.c</FilePath>
+            </File>
+            <File>
+              <FileName>shellio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\shell\shellio.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_commands.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\shell\user_commands.c</FilePath>
             </File>
           </Files>
         </Group>
