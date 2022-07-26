@@ -599,6 +599,11 @@
               <FilePath>..\DEVICE\led.c</FilePath>
             </File>
             <File>
+              <FileName>can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\can.c</FilePath>
+            </File>
+            <File>
               <FileName>usart2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\DEVICE\usart2.c</FilePath>
