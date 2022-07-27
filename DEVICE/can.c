@@ -25,6 +25,8 @@ void Can1_Init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
+	CAN_DeInit(CAN1);
+	CAN_StructInit(&CAN_InitStructure);
 	CAN_InitStructure.CAN_TTCM = DISABLE;
 	CAN_InitStructure.CAN_ABOM = ENABLE;
 	CAN_InitStructure.CAN_AWUM = DISABLE;
@@ -34,7 +36,7 @@ void Can1_Init(void)
 	CAN_InitStructure.CAN_Mode = CAN_Mode_Normal;
 	CAN_InitStructure.CAN_SJW = CAN_SJW_1tq;
 	CAN_InitStructure.CAN_BS1 = CAN_BS1_5tq;
-	CAN_InitStructure.CAN_BS2 = CAN_BS2_3tq;
+	CAN_InitStructure.CAN_BS2 = CAN_BS2_2tq;
 	CAN_InitStructure.CAN_Prescaler = 4;
 	CAN_Init(CAN1, &CAN_InitStructure);
 
@@ -55,7 +57,7 @@ void Can1_Init(void)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 
-	CAN_ITConfig(CAN1, CAN_IT_FMP0, ENABLE);
+	// CAN_ITConfig(CAN1, CAN_IT_FMP0, ENABLE);
 }
 
 void Can_Send_4Msg(uint32_t id, int16_t data1, int16_t data2, int16_t data3, int16_t data4)

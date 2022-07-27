@@ -1,4 +1,5 @@
 #include "cansend_task.h"
+#include "can.h"
 #include "led.h"
 #include "usart2.h"
 
@@ -28,14 +29,17 @@ inline void Create_Can_Send_Task(void)
 										(StaticTask_t*  )&Task1TaskTCB);
 }
 
+
+
+
 void Can_Send_Task(void *pvParameters)
-{
+{uint16_t test = 0;
+	Can1_Init();
 	for(;;)
 	{
-		// printf("task_cnt %d\r\n", task1_num++);
-		//延时1秒 1000个时钟节拍
+		Can_Send_4Msg(0x200, 0x1234, 0x5678, 0x1234, test++);
         LED_ONBOARD_TOGGLE();
-		vTaskDelay(1000);
+		vTaskDelay(10); //100mhz
 	}
 }
 
