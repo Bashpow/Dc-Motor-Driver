@@ -5,5 +5,6 @@
 
 void Can1_Init(void);
 void Can_Send_4Msg(uint32_t id, int16_t data1, int16_t data2, int16_t data3, int16_t data4);
+const CanRxMsg* Get_Can_Receive_Message(void);
 
 #endif // __CAN_H_

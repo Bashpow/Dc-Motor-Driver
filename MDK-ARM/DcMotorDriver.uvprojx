@@ -654,6 +654,11 @@
               <FilePath>..\TASK\cansend_task.c</FilePath>
             </File>
             <File>
+              <FileName>candump_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\candump_task.c</FilePath>
+            </File>
+            <File>
               <FileName>shell_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\shell_task.c</FilePath>

@@ -2,6 +2,7 @@
 #include "FreeRTOS.h"
 #include "peripheral_init.h"
 #include "cansend_task.h"
+#include "candump_task.h"
 #include "shell_task.h"
 
 /**
@@ -16,6 +17,7 @@ int main(void)
 
 	// 创建任务
 	Create_Can_Send_Task();
+	Create_Candump_Task();
 	Create_Shell_Send_Task();
 
 	// 开启任务调度器

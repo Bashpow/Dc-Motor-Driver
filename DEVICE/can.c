@@ -1,4 +1,5 @@
 #include "can.h"
+#include "candump_task.h"
 
 /*
  * PA11 --> CAN1_RX
@@ -56,8 +57,6 @@ void Can1_Init(void)
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
-
-	// CAN_ITConfig(CAN1, CAN_IT_FMP0, ENABLE);
 }
 
 void Can_Send_4Msg(uint32_t id, int16_t data1, int16_t data2, int16_t data3, int16_t data4)
@@ -77,4 +76,30 @@ void Can_Send_4Msg(uint32_t id, int16_t data1, int16_t data2, int16_t data3, int
 	TxMessage.Data[7] = data4;
 
 	CAN_Transmit(CAN1, &TxMessage);
+}
+
+static CanRxMsg can_receive_message;
+
+/**
+ * @brief 获取收到的can数据
+ * 
+ * @return const CanRxMsg* can数据指针
+ */
+inline const CanRxMsg* Get_Can_Receive_Message(void)
+{
+	return &can_receive_message;
+}
+
+//Can1接收中断
+void USB_LP_CAN1_RX0_IRQHandler(void)
+{
+	if (CAN_GetITStatus(CAN1, CAN_IT_FMP0) != RESET)
+	{
+		CAN_ClearITPendingBit(CAN1, CAN_IT_FMP0);
+		CAN_Receive(CAN1, CAN_FIFO0, &can_receive_message);
+		
+		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+		vTaskNotifyGiveFromISR(*Get_Candump_Task_Handler(), &xHigherPriorityTaskWoken);
+		portYIELD_FROM_ISR( xHigherPriorityTaskWoken ); //如果为 pdTRUE，则进行一次上下文切换
+	}
 }
