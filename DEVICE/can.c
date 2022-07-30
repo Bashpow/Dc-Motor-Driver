@@ -78,6 +78,42 @@ void Can_Send_4Msg(uint32_t id, int16_t data1, int16_t data2, int16_t data3, int
 	CAN_Transmit(CAN1, &TxMessage);
 }
 
+/**
+ * @brief 通过本机canId获取控制电调报文的id
+ * 
+ * @param local_can_id 本机id
+ * @return uint32_t 控制报文的id
+ */
+uint32_t Calc_Can_Id_For_Control(uint32_t local_can_id)
+{
+	if(local_can_id>=0x221 && local_can_id<=0x224)
+		return 0x220;
+	
+	else if(local_can_id>=0x225 && local_can_id<=0x228)
+		return 0x21F;
+	
+	else if(local_can_id>=0x229 && local_can_id<=0x22C)
+		return 0x21E;
+	
+	else if(local_can_id>=0x22D && local_can_id<=0x230)
+		return 0x21D;
+	
+	return 0;
+}
+
+/**
+ * @brief 获取本机id对应的有效数据位（位置）
+ * 
+ * @param local_can_id 
+ * @return uint8_t 
+ */
+uint8_t Calc_Can_Msg_Valid_Data_Position(uint32_t local_can_id)
+{
+	if(local_can_id<0x221 || local_can_id>0x230)
+		return 0u;
+	return (((local_can_id - 0x221) % 4) * 2);
+}
+
 static CanRxMsg can_receive_message;
 
 /**
